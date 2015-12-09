@@ -9,4 +9,5 @@ describe 'User Stories' do
       expect(page).to have_content 'Joe vs Jane'
     end
   end
+
 end
