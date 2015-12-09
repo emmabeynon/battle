@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require 'player'
+require './lib/player'
 
 class Battle < Sinatra::Base
   enable :sessions
@@ -16,15 +16,17 @@ class Battle < Sinatra::Base
 
   post '/attack' do
     session[:attack_confirmation] = params[:attack_confirmation]
+    $player_1.attack($player_2)
     redirect '/play'
   end
 
   get '/play' do
-    @player_1_name = $player_1.name
-    @player_2_name = $player_2.name
+    @player_1 = $player_1
+    @player_2 = $player_2
     @attack_confirmation = session[:attack_confirmation]
     erb :play
   end
+  
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
