@@ -5,10 +5,7 @@ describe 'User Stories' do
   # I want to see Player 2's Hit Points
   feature 'Player 2 hit points' do
     scenario 'see hit points' do
-      visit('/')
-      fill_in :player_1, with: 'Joe'
-      fill_in :player_2, with: 'Jane'
-      click_button 'Submit'
+      sign_in_and_play
       expect(page).to have_content 'Jane: 45HP'
     end
   end
