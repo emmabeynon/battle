@@ -5,7 +5,7 @@ def sign_in_and_play
   click_button 'Submit'
 end
 
-def click_attack_then_ok
+def attack_and_confirm
   click_button "Attack!"
   click_button "OK"
 end

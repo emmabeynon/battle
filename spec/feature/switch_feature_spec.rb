@@ -11,7 +11,7 @@ describe 'User Stories' do
 
     scenario 'the turn switches to another player' do
       sign_in_and_play
-      click_attack_then_ok
+      attack_and_confirm
       expect(page).not_to have_content "It's Joe's turn."
       expect(page).to have_content "It's Jane's turn."
     end

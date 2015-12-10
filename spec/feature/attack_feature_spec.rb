@@ -15,9 +15,9 @@ describe 'User Stories' do
   # I want my attack to reduce Player 2's HP
     scenario "reduces Player 2's hit points" do
       sign_in_and_play
-      click_attack_then_ok
-      expect(page).not_to have_content 'Jane: 100 HP'
-      expect(page).to have_content 'Jane: 90 HP'
+      attack_and_confirm
+      expect(page).not_to have_content 'Jane: 50 HP'
+      expect(page).to have_content 'Jane: 40 HP'
     end
 
   # As Player 1,
@@ -25,7 +25,7 @@ describe 'User Stories' do
   # I want Player 2 to attack me, and I want to get a confirmation
     scenario "confirms that Player 2 has attacked Player 1" do
       sign_in_and_play
-      click_attack_then_ok
+      attack_and_confirm
       click_button "Attack!"
       expect(page).not_to have_content 'Joe has attacked Jane!'
       expect(page).to have_content 'Jane has attacked Joe!'
@@ -36,10 +36,10 @@ describe 'User Stories' do
   # I want Player 2's attack to reduce my HP
     scenario "reduces Player 1's hit points" do
       sign_in_and_play
-      click_attack_then_ok
-      click_attack_then_ok
-      expect(page).not_to have_content 'Joe: 100 HP'
-      expect(page).to have_content 'Joe: 90 HP'
+      attack_and_confirm
+      attack_and_confirm
+      expect(page).not_to have_content 'Joe: 50 HP'
+      expect(page).to have_content 'Joe: 40 HP'
     end
 
   end
@@ -50,7 +50,7 @@ describe 'User Stories' do
   feature 'Hit points' do
     scenario "see Player 2's hit points" do
       sign_in_and_play
-      expect(page).to have_content 'Jane: 100 HP'
+      expect(page).to have_content 'Jane: 50 HP'
     end
 
   # As Player 1,
@@ -58,7 +58,7 @@ describe 'User Stories' do
   # I want to see my own hit points
     scenario "see Player 1's hit points" do
       sign_in_and_play
-      expect(page).to have_content 'Joe: 100 HP'
+      expect(page).to have_content 'Joe: 50 HP'
     end
   end
 end
