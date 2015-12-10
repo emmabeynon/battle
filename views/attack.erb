@@ -1,0 +1,9 @@
+
+<% if @game.current_turn == @game.player_1 %>
+  <p><%= @game.player_2.name%> has attacked <%= @game.player_1.name %>!</p>
+<% else %>
+  <p><%= @game.player_1.name%> has attacked <%= @game.player_2.name %>!</p>
+<% end %>
+<form action="/play">
+  <input type="submit" value="OK">
+</form

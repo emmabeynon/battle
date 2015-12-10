@@ -16,18 +16,16 @@ class Battle < Sinatra::Base
     redirect '/play'
   end
 
-  post '/attack' do
-    session[:attack_confirmation] = params[:attack_confirmation]
-    @game = $game
-    @game.attack(@game.player_2)
-    @game.switch_turns
-    redirect '/play'
-  end
-
   get '/play' do
     @game = $game
-    @attack_confirmation = session[:attack_confirmation]
     erb :play
+  end
+
+  get '/attack' do
+    @game = $game
+    @game.attack(@game.switch_turns)
+#    @game.switch_turns
+    erb :attack
   end
 
   # start the server if ruby file executed directly
