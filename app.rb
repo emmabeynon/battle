@@ -36,6 +36,17 @@ class Battle < Sinatra::Base
     erb :attack
   end
 
+  post '/paralyse' do
+    @game = $game
+    @game.attack(@game.opponent_of(@game.current_turn))
+    redirect '/paralyse'
+  end
+
+  get '/paralyse' do
+    @game = $game
+    erb :paralyse
+  end
+
   post '/switch-turns' do
     $game.switch_turns
     redirect '/play'

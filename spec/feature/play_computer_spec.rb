@@ -8,11 +8,23 @@ describe 'User Stories' do
       sign_in_and_play_computer
     end
 
+    context 'Player 1  standard attack' do
     scenario 'computer plays the game' do
       sign_in_and_play_computer
       attack_and_confirm
       expect(page).to have_content('Computerised Player has attacked Joe!')
     end
+    end
+
+    context 'Player 1 paralysis attack' do
+      scenario 'computer plays the game' do
+        sign_in_and_play_computer
+        click_button "Paralyse!"
+        click_button "OK"
+        expect(page).to have_content('Computerised Player has attacked Joe!')
+      end
+    end
+
 
     scenario 'computer damages player 1' do
       allow(Kernel).to receive(:rand) { 5 }
