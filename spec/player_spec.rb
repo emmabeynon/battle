@@ -29,4 +29,11 @@ describe Player do
       expect{ player_1.receive_damage(Player::DEFAULT_HP) }.to change{ player_1.hp }.by -5
     end
   end
+
+  describe '#poisoned' do
+    it 'poisons the player' do
+      player_2.receive_poison
+      expect(player_2.poisoned).to be true
+    end
+  end
 end

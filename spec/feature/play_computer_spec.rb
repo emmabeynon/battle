@@ -16,6 +16,9 @@ describe 'User Stories' do
     end
     end
 
+  # As a Player,
+  # So I can better enjoy a game of Battle,
+  # I want some of my attacks to Paralyse an opponent (chance of losing their next attack)
     context 'Player 1 paralysis attack' do
       scenario 'computer plays the game' do
         sign_in_and_play_computer
@@ -34,4 +37,5 @@ describe 'User Stories' do
       expect(page).to have_content('Joe: 45 HP')
     end
   end
+
 end

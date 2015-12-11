@@ -14,6 +14,10 @@ class Game
     player.receive_damage(max_damage)
   end
 
+  def poison(player)
+    player.receive_poison
+  end
+
   def player_1
     @players.first
   end
@@ -34,6 +38,10 @@ class Game
     losing_players.first
   end
 
+  def poisoned_players
+    players.select { |player| player.poisoned }
+  end
+  
   def end_game
     losing_players.any?
   end

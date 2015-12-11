@@ -44,4 +44,18 @@ describe Game do
     end
   end
 
+  describe '#poison' do
+    it 'poisons player 2' do
+      expect(player_2).to receive(:receive_poison)
+      game.poison(player_2)
+    end
+  end
+
+  describe 'poisoned_players' do
+    it 'identifies a poisoned player' do
+      allow(player_1).to receive(:poisoned).and_return(false)
+      allow(player_2).to receive(:poisoned).and_return(true)
+      expect(game.poisoned_players).to eq [player_2]
+    end
+  end
 end

@@ -24,6 +24,7 @@ class Battle < Sinatra::Base
   post '/attack' do
     @game = $game
     @game.attack(@game.opponent_of(@game.current_turn), Player::DEFAULT_HP/2)
+    @game.attack((@game.current_turn),2) if @game.poisoned_players.include?(@game.current_turn)
     if @game.end_game
       redirect '/game-over'
     else
@@ -39,11 +40,8 @@ class Battle < Sinatra::Base
   post '/paralyse' do
     @game = $game
     @game.attack(@game.opponent_of(@game.current_turn), Player::DEFAULT_HP/4)
-    if @game.end_game
-      redirect '/game-over'
-    else
-      redirect '/paralyse'
-    end
+    @game.attack((@game.current_turn),2) if @game.poisoned_players.include?(@game.current_turn)
+    redirect '/game-over-paralysis'
   end
 
   get '/paralyse' do
@@ -54,6 +52,18 @@ class Battle < Sinatra::Base
   get '/paralysis' do
     @game = $game
     erb :paralysis
+  end
+
+  get '/poison' do
+    @game = $game
+    erb :poison
+  end
+
+  post '/poison' do
+    @game = $game
+    @game.attack((@game.current_turn),2) if @game.poisoned_players.include?(@game.current_turn)
+    @game.poison(@game.opponent_of(@game.current_turn))
+    redirect '/poison'
   end
 
   post '/switch-turns' do
@@ -70,6 +80,15 @@ class Battle < Sinatra::Base
   get '/computer' do
     @game = $game
     erb :computer
+  end
+
+  get '/game-over-paralysis' do
+    @game = $game
+    if @game.end_game
+      redirect '/game-over'
+    else
+      redirect '/paralyse'
+    end
   end
 
   get '/game-over' do

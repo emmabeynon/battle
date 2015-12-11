@@ -1,0 +1,15 @@
+<% if @game.current_turn == @game.player_1 %>
+  <p><%= @game.player_2.name %> has been poisoned!</p>
+<% else %>
+  <p><%= @game.player_1.name %> has been poisoned!</p>
+<% end %>
+
+<% unless @game.player_2.computer %>
+  <form action="/switch-turns" method="post">
+    <input type="submit" value="OK">
+  </form>
+  <% else %>
+  <form action="/computer" method="post">
+    <input type="submit" value="OK">
+  </form>
+<% end %>
