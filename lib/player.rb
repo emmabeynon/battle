@@ -10,6 +10,6 @@ class Player
   end
 
   def receive_damage
-    @hp -= DEFAULT_DAMAGE
+    @hp -= Kernel.rand(1..10)
   end
 end

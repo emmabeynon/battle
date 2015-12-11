@@ -6,7 +6,7 @@ describe 'User Stories' do
   feature 'Lose Game' do
     scenario "a 'Lose' message appears when 0HP is reached" do
       sign_in_and_play
-      8.times { attack_and_confirm }
+      allow(Kernel).to receive(:rand) { 50 }
       click_button 'Attack!'
       expect(page).to have_content 'Jane loses!'
     end

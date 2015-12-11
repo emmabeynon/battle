@@ -12,12 +12,16 @@ describe Player do
   end
 
   describe '#receive_damage' do
-    it "reduces player 2's HP by 10" do
-      expect{ player_2.receive_damage }.to change{ player_2.hp }.by -10
+    before do
+      allow(Kernel).to receive(:rand) { 5 }
     end
 
-    it "reduces player 1's HP by 10" do
-      expect{ player_1.receive_damage }.to change{ player_1.hp }.by -10
+    it "reduces player 2's HP by 5" do
+      expect{ player_2.receive_damage }.to change{ player_2.hp }.by -5
+    end
+
+    it "reduces player 1's HP by 5" do
+      expect{ player_1.receive_damage }.to change{ player_1.hp }.by -5
     end
   end
 end

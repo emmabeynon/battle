@@ -4,6 +4,10 @@ describe 'User Stories' do
   # So I can win a game of Battle,
   # I want to attack Player 2 (Jane), and I want to get a confirmation
   feature 'Attack' do
+    before do
+      allow(Kernel).to receive(:rand) { 10 }
+    end
+
     scenario 'confirms that Player 1 has attacked Player 2' do
       sign_in_and_play
       click_button "Attack!"
@@ -42,6 +46,14 @@ describe 'User Stories' do
       expect(page).to have_content 'Joe: 40 HP'
     end
 
+  # As a Player,
+  # So I can play a suspenseful game of Battle,
+  # I want all Attacks to deal a random amount of damage
+    scenario "deals a random amount of damage" do
+      sign_in_and_play
+      click_button 'Attack!'
+      expect(page).to have_content 'Joe has attacked Jane!'
+    end
   end
 
   # As Player 1,
