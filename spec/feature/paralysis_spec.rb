@@ -5,7 +5,6 @@ describe 'User Stories' do
     end
     scenario 'confirms that Player 1 has paralysis attacked Player 2' do
       sign_in_and_play
-
       click_button "Paralyse!"
       expect(page).to have_content 'Joe has paralysis attacked Jane!'
     end
@@ -21,7 +20,7 @@ describe 'User Stories' do
     end
     context 'paralysis' do
       before {srand(4)}
-      scenario "reduces Player 2's hit points" do
+      scenario "Player 2 should be paralysed" do
         sign_in_and_play
         click_button "Paralyse!"
         click_button "OK"

@@ -23,7 +23,7 @@ class Battle < Sinatra::Base
 
   post '/attack' do
     @game = $game
-    @game.attack(@game.opponent_of(@game.current_turn))
+    @game.attack(@game.opponent_of(@game.current_turn), Player::DEFAULT_HP/2)
     if @game.end_game
       redirect '/game-over'
     else
@@ -38,7 +38,7 @@ class Battle < Sinatra::Base
 
   post '/paralyse' do
     @game = $game
-    @game.attack(@game.opponent_of(@game.current_turn))
+    @game.attack(@game.opponent_of(@game.current_turn), Player::DEFAULT_HP/4)
     if @game.end_game
       redirect '/game-over'
     else
@@ -63,7 +63,7 @@ class Battle < Sinatra::Base
 
   post '/computer' do
     @game = $game
-    @game.attack(@game.player_1)
+    @game.attack(@game.player_1, Player::DEFAULT_HP/2)
     redirect '/computer'
   end
 

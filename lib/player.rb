@@ -10,7 +10,7 @@ class Player
     @hp = hp
   end
 
-  def receive_damage
-    @hp -= Kernel.rand(1..10)
+  def receive_damage(max_damage)
+    @hp -= Kernel.rand(max_damage)
   end
 end

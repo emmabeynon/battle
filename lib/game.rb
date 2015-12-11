@@ -10,8 +10,8 @@ class Game
     @current_turn = opponent_of(current_turn)
   end
 
-  def attack(player)
-    player.receive_damage
+  def attack(player, max_damage)
+    player.receive_damage(max_damage)
   end
 
   def player_1
