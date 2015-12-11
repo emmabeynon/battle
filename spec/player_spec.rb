@@ -11,6 +11,11 @@ describe Player do
     end
   end
 
+  it 'is a computerised player' do
+    computer_player = described_class.new("Computer", true)
+    expect(computer_player.computer).to be true
+  end
+
   describe '#receive_damage' do
     before do
       allow(Kernel).to receive(:rand) { 5 }
