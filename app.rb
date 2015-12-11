@@ -39,12 +39,21 @@ class Battle < Sinatra::Base
   post '/paralyse' do
     @game = $game
     @game.attack(@game.opponent_of(@game.current_turn))
-    redirect '/paralyse'
+    if @game.end_game
+      redirect '/game-over'
+    else
+      redirect '/paralyse'
+    end
   end
 
   get '/paralyse' do
     @game = $game
     erb :paralyse
+  end
+
+  get '/paralysis' do
+    @game = $game
+    erb :paralysis
   end
 
   post '/switch-turns' do

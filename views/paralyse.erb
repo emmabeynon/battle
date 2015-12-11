@@ -4,7 +4,7 @@
   <p><%= @game.player_2.name %> has paralysis attacked <%= @game.player_1.name %>!</p>
 <% end %>
 
-<% if Kernel.rand(1..4) <= 2 %>
+<% if rand(4) < 2 %>
 
 <% unless @game.player_2.computer %>
   <form action="/switch-turns" method="post">
@@ -16,4 +16,10 @@
   </form>
 <% end %>
 
-<% end %>
+<% else %>
+
+<form action="/paralysis" method="get">
+  <input type="submit" value="OK">
+</form>
+
+<%end%>
