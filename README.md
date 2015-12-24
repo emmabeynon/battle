@@ -7,7 +7,7 @@ Github: https://github.com/emmabeynon
 
 Email: emma.beynon@gmail.com
 
-This is my submission for the Makers Academy Week 3 Challenge: https://github.com/makersacademy/course/blob/master/intro_to_the_web/17_getting_started_with_battle.md
+This is my submission for the Makers Academy Week 3 Project: https://github.com/makersacademy/course/blob/master/intro_to_the_web/17_getting_started_with_battle.md
 
 Overview
 ---------
@@ -51,6 +51,34 @@ I want Player 2's attack to reduce my HP by 10
 As a Player,
 So I can Lose a game of Battle,
 I want to see a 'Lose' message if I reach 0HP first
+
+As a Player,
+So I can play a suspenseful game of Battle,
+I want all Attacks to deal a random amount of damage
+
+As a lonely Player,
+So I can keep my Battle skills up to scratch
+I want to play a Computerised opponent
+
+As a Player,
+So I can enjoy a game of Battle with more variety,
+I want to choose from a range of attacks I could make
+
+As a Player,
+So I can better enjoy a game of Battle,
+I want some of my attacks to Paralyse an opponent (chance of losing their next attack)
+
+As a Player,
+So I can better enjoy a game of Battle,
+I want one of my attacks to have a chance of Poisoning my Opponent (Opponent takes a small random amount of damage at the beginning of their turn)
+
+As a Player,
+So I can better enjoy a game of Battle,
+I want to make an attack that has a chance of sending my Opponent to Sleep (Opponent definitely misses next turn)
+
+As a Player,
+So I can extend my joyous experience of Battle,
+I want to have an attack that heals some of my Hit Points
 ```
 
 Instructions
@@ -63,7 +91,10 @@ Instructions
 
 Approach
 ---------
+** NOTE: Global variables have been used as we have not yet been introduced to databases.  We know that we shouldn't use global variables normally. **
+
 
 Further Work
 -------------
-Complete the extended user stories.
+* Add a database
+* Styling
