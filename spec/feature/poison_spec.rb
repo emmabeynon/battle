@@ -1,4 +1,4 @@
-describe 'User Stories' do
+describe 'Poison attack' do
 # As a Player,
 # So I can better enjoy a game of Battle,
 # I want one of my attacks to have a chance of Poisoning my Opponent (Opponent takes a small random amount of damage at the beginning of their turn)

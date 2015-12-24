@@ -1,4 +1,4 @@
-describe 'User Stories' do
+describe 'Start' do
 
   # As two Players,
   # So we can play a personalised game of Battle,

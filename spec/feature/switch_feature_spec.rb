@@ -1,9 +1,9 @@
-describe 'User Stories' do
+describe 'Switch turns' do
 
   # As two Players,
   # So we can continue our game of Battle,
   # We want to switch turns
-  feature 'switch turns' do
+  feature 'switch the current player' do
     scenario 'the current player has their turn' do
       sign_in_and_play
       expect(page).to have_content "It's Joe's turn."

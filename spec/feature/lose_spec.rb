@@ -1,4 +1,4 @@
-describe 'User Stories' do
+describe 'Lose' do
 
   # As a Player,
   # So I can Lose a game of Battle,

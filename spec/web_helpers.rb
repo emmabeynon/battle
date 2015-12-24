@@ -22,3 +22,8 @@ def send_to_sleep
   click_button 'Send opponent to sleep!'
   click_button 'OK'
 end
+
+def paralyse
+  click_button "Paralyse!"
+  click_button "OK"
+end

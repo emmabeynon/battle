@@ -1,4 +1,4 @@
-describe 'User Stories' do
+describe 'Computer player' do
 
   # As a lonely Player,
   # So I can keep my Battle skills up to scratch
@@ -8,7 +8,7 @@ describe 'User Stories' do
       sign_in_and_play_computer
     end
 
-    context 'Player 1  standard attack' do
+    context 'Player 1 standard attack' do
     scenario 'computer plays the game' do
       sign_in_and_play_computer
       attack_and_confirm
@@ -22,8 +22,7 @@ describe 'User Stories' do
     context 'Player 1 paralysis attack' do
       scenario 'computer plays the game' do
         sign_in_and_play_computer
-        click_button "Paralyse!"
-        click_button "OK"
+        paralyse
         expect(page).to have_content('Computerised Player has attacked Joe!')
       end
     end

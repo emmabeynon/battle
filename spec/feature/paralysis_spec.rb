@@ -1,5 +1,5 @@
-describe 'User Stories' do
-  feature 'Paralysis' do
+describe 'Paralysis attack' do
+  feature 'paralyses player' do
     before do
       allow(Kernel).to receive(:rand) { 10 }
     end
@@ -12,8 +12,7 @@ describe 'User Stories' do
       before {srand(0)}
     scenario "reduces Player 2's hit points" do
       sign_in_and_play
-      click_button "Paralyse!"
-      click_button "OK"
+      paralyse
       expect(page).not_to have_content 'Jane: 50 HP'
       expect(page).to have_content 'Jane: 40 HP'
     end
@@ -22,14 +21,12 @@ describe 'User Stories' do
       before {srand(4)}
       scenario "Player 2 should be paralysed" do
         sign_in_and_play
-        click_button "Paralyse!"
-        click_button "OK"
+        paralyse
         expect(page).to have_content 'Jane is paralysed'
       end
       scenario "Player 2 misses go" do
         sign_in_and_play
-        click_button "Paralyse!"
-        click_button "OK"
+        paralyse
         click_button "OK"
         expect(page).to have_content "It's Joe's turn."
       end

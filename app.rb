@@ -88,6 +88,15 @@ class Battle < Sinatra::Base
     redirect '/play'
   end
 
+  post '/heal' do
+    redirect '/heal'
+  end
+
+  get '/heal' do
+    @game = $game
+    erb :heal
+  end
+
   post '/switch-turns' do
     $game.switch_turns
     redirect '/play'

@@ -1,0 +1,9 @@
+<% if @game.current_turn == @game.player_1 %>
+  <%= @game.player_1.name %> has chosen to heal.
+<% else %>
+  <%= @game.player_2.name %> has chosen to heal.
+<% end %>
+<p>
+<form action="/heal" method="post">
+  <input type="submit" value="OK">
+</form>

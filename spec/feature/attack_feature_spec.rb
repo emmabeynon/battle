@@ -1,9 +1,9 @@
-describe 'User Stories' do
+describe 'Attack' do
 
   # As Player 1 (Joe),
   # So I can win a game of Battle,
   # I want to attack Player 2 (Jane), and I want to get a confirmation
-  feature 'Attack' do
+  feature 'Attacks player' do
     before do
       allow(Kernel).to receive(:rand) { 10 }
     end
