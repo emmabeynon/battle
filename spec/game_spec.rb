@@ -72,4 +72,11 @@ describe Game do
       game.wake_up(player_2)
     end
   end
+
+  describe '#heal' do
+    it 'heals player 1' do
+      expect(player_1).to receive(:receive_healing)
+      game.heal(player_1)
+    end
+  end
 end

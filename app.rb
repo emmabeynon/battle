@@ -89,6 +89,8 @@ class Battle < Sinatra::Base
   end
 
   post '/heal' do
+    @game = $game
+    @game.heal(@game.current_turn)
     redirect '/heal'
   end
 

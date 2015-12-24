@@ -28,4 +28,9 @@ class Player
   def awake
     @asleep = false
   end
+
+  def receive_healing
+    @hp += Kernel.rand(1..5)
+  end
+  
 end

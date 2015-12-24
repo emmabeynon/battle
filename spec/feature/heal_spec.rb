@@ -10,7 +10,7 @@ describe 'Heal attack' do
         click_button 'Heal'
         expect(page).to have_content 'Joe has chosen to heal.'
     end
-    
+
     scenario 'increases player 1\'s hit points' do
       sign_in_and_play
       attack_and_confirm
@@ -18,6 +18,7 @@ describe 'Heal attack' do
       attack_and_confirm
       allow(Kernel).to receive(:rand) { 5 }
       click_button 'Heal'
+      click_button 'OK'
       expect(page).to have_content 'Joe: 45 HP'
     end
 

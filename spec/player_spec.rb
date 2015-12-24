@@ -47,4 +47,13 @@ describe Player do
     end
   end
 
+  describe '#receive_healing' do
+    before do
+      allow(Kernel).to receive(:rand) { 3 }
+    end
+    it 'increases player 1\'s HP' do
+      expect{ player_1.receive_healing }.to change{ player_1.hp }.by 3
+    end
+  end
+
 end

@@ -26,6 +26,10 @@ class Game
     player.awake
   end
 
+  def heal(player)
+    player.receive_healing
+  end
+
   def player_1
     @players.first
   end
