@@ -17,3 +17,8 @@ def sign_in_and_play_computer
   choose('computerised')
   click_button 'Submit'
 end
+
+def send_to_sleep
+  click_button 'Send opponent to sleep!'
+  click_button 'OK'
+end

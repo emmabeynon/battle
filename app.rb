@@ -66,6 +66,17 @@ class Battle < Sinatra::Base
     redirect '/poison'
   end
 
+  get '/sleep' do
+    @game = $game
+    erb :sleep
+  end
+
+  post '/sleep' do
+    @game = $game
+    @game.send_to_sleep(@game.opponent_of(@game.current_turn))
+    redirect '/sleep'
+  end
+
   post '/switch-turns' do
     $game.switch_turns
     redirect '/play'

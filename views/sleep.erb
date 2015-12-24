@@ -1,0 +1,9 @@
+
+<% if @game.current_turn == @game.player_1 %>
+  <p><%= @game.player_1.name %> has tried to send <%= @game.player_2.name %> to sleep!</p>
+<% else %>
+  <p><%= @game.player_2.name %> has tried to send <%= @game.player_1.name %> to sleep!</p>
+<% end %>
+<form action="/sleep-result">
+  <input type="submit" value="OK">
+</form>

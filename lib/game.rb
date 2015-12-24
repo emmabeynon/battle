@@ -18,6 +18,10 @@ class Game
     player.receive_poison
   end
 
+  def send_to_sleep(player)
+    player.receive_sleep_attack
+  end
+
   def player_1
     @players.first
   end
@@ -41,7 +45,7 @@ class Game
   def poisoned_players
     players.select { |player| player.poisoned }
   end
-  
+
   def end_game
     losing_players.any?
   end

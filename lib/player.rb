@@ -9,6 +9,7 @@ class Player
     @computer = computer
     @hp = hp
     @poisoned = false
+    @asleep = false
   end
 
   def receive_damage(max_damage)
@@ -17,6 +18,11 @@ class Player
 
   def receive_poison
     @poisoned = true
+  end
+
+  def receive_sleep_attack
+    sleep = Kernel.rand(0..5)
+    sleep.even? ? @asleep = true : @asleep = false
   end
 
 end

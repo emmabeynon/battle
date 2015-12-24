@@ -56,10 +56,14 @@ I want to see a 'Lose' message if I reach 0HP first
 Instructions
 ------------
 1. Fork this repo and clone to your local machine.
+2. Run ```gem install bundle```
+3. Once installation is complete, run ```bundle```
+4. Run ```ruby app.rb``` or use your preferred interface.
+5. View at: http://localhost:4567
 
 Approach
 ---------
 
 Further Work
 -------------
-Complete the extended user stories. 
+Complete the extended user stories.
