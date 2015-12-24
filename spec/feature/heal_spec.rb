@@ -17,13 +17,14 @@ describe 'Heal attack' do
       allow(Kernel).to receive(:rand) { 10 }
       attack_and_confirm
       allow(Kernel).to receive(:rand) { 5 }
-      click_button 'Heal'
-      click_button 'OK'
+      heal
       expect(page).to have_content 'Joe: 45 HP'
     end
 
-    xscenario 'cannot be used if player\'s hit points are at default level' do
+    scenario 'cannot be used if player\'s hit points are at default level' do
       sign_in_and_play
+      click_button 'Heal'
+      expect(page).to have_content 'You cannot be healed as you have the maximum HP.'
     end
 
     xscenario 'cannot increase player\'s hit points above default HP' do

@@ -48,11 +48,19 @@ describe Player do
   end
 
   describe '#receive_healing' do
-    before do
-      allow(Kernel).to receive(:rand) { 3 }
-    end
     it 'increases player 1\'s HP' do
+      allow(Kernel).to receive(:rand) { 5 }
+      player_1.receive_damage(Player::DEFAULT_DAMAGE)
+      allow(Kernel).to receive(:rand) { 3 }
       expect{ player_1.receive_healing }.to change{ player_1.hp }.by 3
+    end
+
+    it 'does not increase player 1\'s HP if it is at the default level' do
+      require 'byebug'
+      allow(player_1).to receive(:hp) { Player::DEFAULT_HP }
+      byebug
+      expect{ player_1.receive_healing }.not_to change { player_1.hp }
+      byebug
     end
   end
 

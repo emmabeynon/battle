@@ -27,3 +27,8 @@ def paralyse
   click_button "Paralyse!"
   click_button "OK"
 end
+
+def heal
+  click_button 'Heal'
+  click_button 'OK'
+end
