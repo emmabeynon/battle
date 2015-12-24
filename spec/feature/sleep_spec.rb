@@ -10,27 +10,31 @@ describe 'Sleep attack' do
       expect(page).to have_content 'Joe has tried to send Jane to sleep!'
     end
 
-    xscenario 'successfully and views confirmation message' do
+    scenario 'successfully and views confirmation message' do
       sign_in_and_play
+      allow(Kernel).to receive(:rand) { 2 }
       send_to_sleep
       expect(page).to have_content 'Jane is asleep and misses their turn.'
     end
 
-    xscenario 'successfully and opponent misses turn' do
+    scenario 'successfully and opponent misses turn' do
       sign_in_and_play
+      allow(Kernel).to receive(:rand) { 2 }
       send_to_sleep
       click_button 'OK'
       expect(page).to have_content "It's Joe's turn."
     end
 
-    xscenario 'unsuccessfully and views confirmation message' do
+    scenario 'unsuccessfully and views confirmation message' do
       sign_in_and_play
+      allow(Kernel).to receive(:rand) { 1 }
       send_to_sleep
       expect(page).to have_content 'Jane is still awake.'
     end
 
-    xscenario 'unsuccessfully and opponent takes their turn' do
+    scenario 'unsuccessfully and opponent takes their turn' do
       sign_in_and_play
+      allow(Kernel).to receive(:rand) { 1 }
       send_to_sleep
       click_button 'OK'
       expect(page).to have_content "It's Jane's turn."

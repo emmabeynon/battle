@@ -36,4 +36,15 @@ describe Player do
       expect(player_2.poisoned).to be true
     end
   end
+
+  describe '#asleep' do
+    before do
+      allow(Kernel).to receive(:rand) { 2 }
+    end
+    it 'sends player 1 to sleep' do
+      player_2.receive_sleep_attack
+      expect(player_2.asleep).to be true
+    end
+  end
+
 end

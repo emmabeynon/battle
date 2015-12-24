@@ -58,4 +58,18 @@ describe Game do
       expect(game.poisoned_players).to eq [player_2]
     end
   end
+
+  describe '#send_to_sleep' do
+    it 'attempts to send player 2 to sleep' do
+      expect(player_2).to receive(:receive_sleep_attack)
+      game.send_to_sleep(player_2)
+    end
+  end
+
+  describe '#wake_up' do
+    it 'wakes up player 2' do
+      expect(player_2).to receive(:awake)
+      game.wake_up(player_2)
+    end
+  end
 end

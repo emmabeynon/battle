@@ -4,6 +4,6 @@
 <% else %>
   <p><%= @game.player_2.name %> has tried to send <%= @game.player_1.name %> to sleep!</p>
 <% end %>
-<form action="/sleep-result">
+<form action="/sleep" method="post">
   <input type="submit" value="OK">
 </form>

@@ -74,7 +74,18 @@ class Battle < Sinatra::Base
   post '/sleep' do
     @game = $game
     @game.send_to_sleep(@game.opponent_of(@game.current_turn))
-    redirect '/sleep'
+    redirect '/sleep-result'
+  end
+
+  get '/sleep-result' do
+    @game = $game
+    erb :sleep_result
+  end
+
+  post '/wake-up' do
+    @game = $game
+    @game.wake_up(@game.opponent_of(@game.current_turn))
+    redirect '/play'
   end
 
   post '/switch-turns' do

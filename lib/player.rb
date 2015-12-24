@@ -1,5 +1,5 @@
 class Player
-  attr_reader :name, :hp, :computer, :poisoned
+  attr_reader :name, :hp, :computer, :poisoned, :asleep
 
   DEFAULT_DAMAGE = 10
   DEFAULT_HP = 50
@@ -25,4 +25,7 @@ class Player
     sleep.even? ? @asleep = true : @asleep = false
   end
 
+  def awake
+    @asleep = false
+  end
 end

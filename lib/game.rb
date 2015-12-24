@@ -22,6 +22,10 @@ class Game
     player.receive_sleep_attack
   end
 
+  def wake_up(player)
+    player.awake
+  end
+
   def player_1
     @players.first
   end

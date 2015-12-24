@@ -1,0 +1,23 @@
+<% if @game.current_turn == @game.player_1 %>
+  <% if @game.player_2.asleep %>
+    <%= @game.player_2.name %> is asleep and misses their turn.
+  <% else %>
+    <%= @game.player_2.name %> is still awake.
+  <% end %>
+<% else %>
+  <% if @game.player_1.asleep %>
+    <%= @game.player_1.name %> is asleep and misses their turn.
+  <% else %>
+    <%= @game.player_1.name %> is still awake.
+  <% end %>
+<% end %>
+
+<% if @game.player_2.asleep || @game.player_1.asleep %>
+  <form action='/wake-up' method='post'>
+    <input type="submit" value="OK">
+  </form>
+<% else %>
+  <form action='/switch-turns' method='post'>
+    <input type="submit" value="OK">
+  </form>
+<% end %>
