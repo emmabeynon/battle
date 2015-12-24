@@ -56,11 +56,15 @@ describe Player do
     end
 
     it 'does not increase player 1\'s HP if it is at the default level' do
-      require 'byebug'
       allow(player_1).to receive(:hp) { Player::DEFAULT_HP }
-      byebug
       expect{ player_1.receive_healing }.not_to change { player_1.hp }
-      byebug
+    end
+
+    it 'cannot increase player 1\'s HP above the default level' do
+      allow(Kernel).to receive(:rand) { 3 }
+      player_1.receive_damage(Player::DEFAULT_DAMAGE)
+      allow(Kernel).to receive(:rand) { 5 }
+      expect{ player_1.receive_healing }.to change{ player_1.hp }.by 3
     end
   end
 

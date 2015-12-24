@@ -27,8 +27,14 @@ describe 'Heal attack' do
       expect(page).to have_content 'You cannot be healed as you have the maximum HP.'
     end
 
-    xscenario 'cannot increase player\'s hit points above default HP' do
+    scenario 'cannot increase player\'s hit points above default HP' do
       sign_in_and_play
+      attack_and_confirm
+      allow(Kernel).to receive(:rand) { 2 }
+      attack_and_confirm
+      allow(Kernel).to receive(:rand) { 5 }
+      heal
+      expect(page).to have_content 'Joe: 50 HP'
     end
   end
 end

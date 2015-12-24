@@ -30,7 +30,8 @@ class Player
   end
 
   def receive_healing
-    @hp += Kernel.rand(1..5) if hp < DEFAULT_HP
+    points = Kernel.rand(1..5)
+    hp + points > DEFAULT_HP ? @hp = DEFAULT_HP : @hp += points
   end
 
 end
