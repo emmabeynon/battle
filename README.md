@@ -91,10 +91,18 @@ Instructions
 
 Approach
 ---------
-** NOTE: Global variables have been used as we have not yet been introduced to databases.  We know that we shouldn't use global variables normally. **
+** NOTE: Global variables have been used as we have not yet been introduced to databases.  I know that we shouldn't use global variables normally. **
+
+This project was test-driven using Rspec and Capybara to test user interaction.  To start off, I created a form for the players to enter their names.  Then after the users submit their names, they can see each other's hit points (HP).  With these basics in place, I started developing an attack.  First off, a confirmation message is displayed to confirm that the attack took place.  Then, I developed a Player class to handle each individual player's state - in this particular case, to manage their HP.  With this class now in place, I could instruct the game to deduct a certain number of HP from a player after they have been attacked.  
+
+However I felt that there should be another class taking care of performing the attack on the Player instance, instead of the player essentially attacking itself, in order to adhere to the Single Responsibility Principle.  So I extracted a Game class that contained an attack method to make an attack on a Player's HP.  It also became apparent that the Game should handle the interaction between the players, and that it couldn't really exist without players, so I modified the Game class to accept two players when it is instantiated.  
+
+Even though there are now two players in place, the game only enabled player 1 to attack player 2.  To make this a fairer game, I implemented functionality for players to switch turns, thus enabling player 2 to have the opportunity to attack as well.  With both players now being able to attack, I enabled a "Lose" message to display once a player's HP had reached 0. However, at that point it was quite a boring game because player 1 would always win.  
+
+To make the game a bit more interesting, I changed the attack method to deal a random amount of HP loss.  I also started adding other attacks for players to choose from - Paralyse (chance of opponent to miss their next turn), Poison (opponent takes a small amount of damage at every turn), Send to sleep (opponent misses their next turn) and Heal (players regains some HP).  Finally, so that a player could play the game without another person, I enabled functionality to play a computerised opponent.  The computer currently plays the standard attack.
 
 
 Further Work
 -------------
 * Add a database
-* Styling
+* Enable computer attack type to be randomised
