@@ -1,5 +1,11 @@
-<%= @game.player_2.name %> has attacked <%= @game.player_1.name %>!</p>
-<p>
-  <form action="/play" method="get">
-  <input type="submit" value="OK">
-</form>
+<div class="wrapper">
+  <div class="outcome">
+    <h2>
+    <%= @game.player_2.name %> has attacked <%= @game.player_1.name %>!</p>
+    </h2>
+    <p>
+    <form action="/play" method="get">
+      <input type="submit" value="OK" class="submit-button">
+    </form>
+  </div>
+</div>

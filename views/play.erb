@@ -1,25 +1,29 @@
-<h1><%= @game.player_1.name%> vs <%= @game.player_2.name %></h1>
-<h2>It's <%= @game.current_turn.name %>'s turn.</h2>
-<h3> <%= @game.player_1.name%>: <%= @game.player_1.hp %> HP </h3>
+<div id="hp_container">
+  <h2>
+    <%= @game.player_1.name%>: <%= @game.player_1.hp %> HP
+    <br>
+    <%= @game.player_2.name %>: <%= @game.player_2.hp %> HP
+  </h2>
+</div>
 
-<h3> <%= @game.player_2.name %>: <%= @game.player_2.hp %> HP</h3>
-
-<form action="/attack" method="post">
-  <input type="submit" value="Attack!">
-</form>
-
-<form action="/paralyse" method="post">
-  <input type="submit" value="Paralyse!">
-</form>
-
-<form action="/poison" method="post">
-  <input type="submit" value="Poison!">
-</form>
-
-<form action="/sleep">
-  <input type="submit" value="Send opponent to sleep!">
-</form>
-
-<form action="/heal">
-  <input type="submit" value="Heal">
-</form>
+<div id="attack_container">
+  <form action="/attack" method="post">
+    <input type="submit" value="Attack!" class="attack_button">
+  </form>
+  <br>
+  <form action="/poison" method="post">
+    <input type="submit" value="Poison!" class="attack_button">
+  </form>
+  <br>
+  <form action="/paralyse" method="post">
+    <input type="submit" value="Paralyse!" class="attack_button">
+  </form>
+  <br>
+  <form action="/heal">
+    <input type="submit" value="Heal" class="attack_button">
+  </form>
+  <br>
+  <form action="/sleep">
+    <input type="submit" value="Send opponent to sleep!" class="attack_button">
+  </form>
+</div>

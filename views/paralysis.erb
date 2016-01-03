@@ -1,9 +1,15 @@
-<% if @game.current_turn == @game.player_1 %>
-  <h1> <%= @game.player_2.name %> is paralysed  </h1>
-<% else %>
-  <h1> <%= @game.player_1.name %> is paralysed  </h1>
-<% end %>
-
-<form action="/play" method="get">
-  <input type="submit" value="OK">
-</form>
+<div class="wrapper">
+  <div class="outcome">
+    <h2>
+      <% if @game.current_turn == @game.player_1 %>
+        <%= @game.player_2.name %> is paralysed.
+      <% else %>
+        <%= @game.player_1.name %> is paralysed.
+      <% end %>
+    </h2>
+    <p>
+      <form action="/play" method="get">
+        <input type="submit" value="OK" class="submit-button">
+      </form>
+  </div>
+</div>

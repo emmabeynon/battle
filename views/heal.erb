@@ -1,13 +1,19 @@
-<% if @game.current_turn == @game.player_1 && @game.player_1.hp == 50 %>
-  You cannot be healed as you have the maximum HP.
-<% elsif @game.current_turn == @game.player_1 && @game.player_1.hp < 50 %>
-  <%= @game.player_1.name %> has chosen to heal.
-<% elsif @game.current_turn == @game.player_2 && @game.player_2.hp == 50 %>
-  You cannot be healed as you have the maximum HP.
-<% else %>
-  <%= @game.player_2.name %> has chosen to heal.
-<% end %>
-<p>
-<form action="/heal" method="post">
-  <input type="submit" value="OK">
-</form>
+<div class="wrapper">
+  <div class="outcome">
+    <h2>
+    <% if @game.current_turn == @game.player_1 && @game.player_1.hp == 50 %>
+      You cannot be healed as you have the maximum HP.
+    <% elsif @game.current_turn == @game.player_1 && @game.player_1.hp < 50 %>
+      <%= @game.player_1.name %> has chosen to heal.
+    <% elsif @game.current_turn == @game.player_2 && @game.player_2.hp == 50 %>
+      You cannot be healed as you have the maximum HP.
+    <% else %>
+      <%= @game.player_2.name %> has chosen to heal.
+    <% end %>
+    </h2>
+    <p>
+    <form action="/heal" method="post">
+      <input type="submit" value="OK" class="submit-button">
+    </form>
+  </div>
+</div>

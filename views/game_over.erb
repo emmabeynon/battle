@@ -1,6 +1,12 @@
-<%= @game.loser.name %> loses!
-<p>
-  <form action="/">
-    <input type="submit" value="Start again">
-  </form>
-</p>
+<div class="wrapper">
+  <div class="outcome">
+    <h2>
+    <%= @game.loser.name %> loses!
+    </h2>
+    <p>
+      <form action="/">
+        <input type="submit" value="Start again" class="submit-button">
+      </form>
+    </p>
+  </div>
+</div>

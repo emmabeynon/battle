@@ -6,6 +6,7 @@ class Battle < Sinatra::Base
   enable :sessions
 
   get '/' do
+    @game = nil
     erb :index
   end
 

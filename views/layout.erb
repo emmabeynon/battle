@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Battle</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="centre_text">
+        <% if @game %>
+          <h1 id="vs_header"><%= @game.player_1.name%> vs <%= @game.player_2.name %></h1>
+        <% end %>
+        <h1 id="battle_header">Battle</h1>
+        <% if @game %>
+          <h2 id="turn_header">It's <%= @game.current_turn.name %>'s turn.</h2>
+        <% end %>
+      </div>
+    </div>
+    <%= yield %>
+  </body>
+</html>
